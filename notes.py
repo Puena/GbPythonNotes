@@ -53,7 +53,9 @@ def read_notes(filter_date):
     for note_id, note in notes.items():
         # Do filtration if filter exists
         if filter_date != None:
+            # Parse filter date
             f_date = datetime.datetime.strptime(filter_date, "%Y-%m-%d")
+            # Parse note date without time
             note_date = datetime.datetime.strptime(note["timestamp"].split(" ")[0], "%Y-%m-%d")
             # filter by day
             if f_date != note_date:
